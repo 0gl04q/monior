@@ -2,6 +2,11 @@
 
 {% block content %}
 
-    <h1>Заявки на поиск</h1>
-
+    <div class="container text-center">
+        {% for order in orders %}
+            <div class="row">
+                <a href="{{ order.get_success_url }}" class="col btn btn-light border py-2 fs-3">{{ order }}</a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

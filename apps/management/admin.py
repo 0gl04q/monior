@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from apps.management.models import Order, Card
+
+admin.site.register(Order)
+admin.site.register(Card)

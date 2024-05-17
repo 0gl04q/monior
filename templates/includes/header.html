@@ -1,0 +1,22 @@
+<header>
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid container">
+
+
+            <a href="{% url 'order_create' %}" class="btn btn-success py-2">Создать заявку</a>
+            <a href="{% url 'order_list' %}" class="text-decoration-none"><strong class="navbar-brand fs-2 pe-4 me-5">МОНИТОР</strong></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>

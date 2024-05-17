@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="album container">
+        <h2 class="pb-3 pt-3">Карточки заявки - {{ order.query }}</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for card in cards %}
+                <a href="{{ card.link }}" class="text-decoration-none">
+                    <div class="col">
+                        <div class="card shadow-sm text-center">
+                            <div class="card-body">
+                                <p class="card-text fs-3">{{ card.name }}</p>
+                                <p class="fs-2">{{ card.real_price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% empty %}
+                <p>Карточки еще не собраны</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

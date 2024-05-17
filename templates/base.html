@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+
+    {# Load the django_bootstrap5 library #}
+    {% load django_bootstrap5 %}
+
+    {# Load CSS and JavaScript separately#}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
 </head>
 <body>
-    {% block content %} {% endblock %}
 
-    {% block script %} {% endblock %}
+<!-- HEADER -->
+{% include 'includes/header.html' %}
+
+<main>
+    <div class="container py-3 bg-light">
+        {% block content %} {% endblock %}
+    </div>
+</main>
+
+<!-- FOOTER -->
+{% include 'includes/footer.html' %}
+
+{% block scripts %} {% endblock %}
+
 </body>
+
 </html>
