@@ -5,6 +5,8 @@ from django.views.generic import ListView, CreateView
 from apps.management.models import Order, Card
 from apps.management.forms import OrderModelForm
 
+from parser_market.scraper import Scraper
+
 
 class OrderCreateView(CreateView):
     form_class = OrderModelForm

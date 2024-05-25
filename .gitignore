@@ -10,6 +10,8 @@ data/
 */migrations*
 cache/
 
+geckodriver
+
 # C extensions
 *.so
 

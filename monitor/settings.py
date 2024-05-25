@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +46,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
 
-    'apps.management.apps.ManagementConfig'
+    'apps.management.apps.ManagementConfig',
+    "apps.api.apps.ApiConfig"
 ]
 
 MIDDLEWARE = [
@@ -135,4 +139,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+# CELERY settings
 
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = '6379'
+
+BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
